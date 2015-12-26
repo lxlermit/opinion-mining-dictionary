@@ -23,5 +23,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Gradle: org.annolab.tt4j:org.annolab.tt4j:1.2.1" level="project" />
+    <orderEntry type="library" name="scala-sdk-2.11.7" level="project" />
   </component>
 </module>
