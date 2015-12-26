@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'wrapper'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.annolab.tt4j:org.annolab.tt4j:1.2.1'
+}
