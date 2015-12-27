@@ -1,8 +1,12 @@
 apply plugin: 'java'
 apply plugin: 'wrapper'
+apply plugin: 'scala'
+apply plugin: 'application'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
+
+mainClassName = "edu.dm.omd.Main"
 
 repositories {
     mavenCentral()
@@ -10,4 +14,9 @@ repositories {
 
 dependencies {
     compile 'org.annolab.tt4j:org.annolab.tt4j:1.2.1'
+    compile 'org.scala-lang:scala-library:2.11.7'
+
+    compile files('src/main/resources/jaws-bin.jar')
+
+    testCompile 'junit:junit:4.4'
 }

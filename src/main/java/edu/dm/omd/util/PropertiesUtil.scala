@@ -9,7 +9,7 @@ object PropertiesUtil {
 
   def loadSystemProperties(): Unit = {
     val properties = new Properties()
-    val inputStream = Main.getClass.getResourceAsStream("system.properties")
+    val inputStream = Main.getResource("system.properties")
     properties.load(inputStream)
     for(entry <- properties.entrySet()) {
       val key = entry.getKey.toString

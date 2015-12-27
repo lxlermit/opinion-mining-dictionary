@@ -1,9 +1,15 @@
 package edu.dm.omd
 
+import java.io.InputStream
+
 import edu.dm.omd.util.PropertiesUtil
 import org.annolab.tt4j.{TokenHandler, TreeTaggerWrapper}
 
 object Main {
+
+  def getResource(resourceName: String): InputStream = {
+    Main.getClass.getResourceAsStream("../../../"+resourceName)
+  }
 
   def main(args: Array[String]) {
     PropertiesUtil.loadSystemProperties()
