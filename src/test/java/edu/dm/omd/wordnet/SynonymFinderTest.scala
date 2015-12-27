@@ -1,5 +1,6 @@
 package edu.dm.omd.wordnet
 
+import edu.dm.omd.domain.{PartOfSpeech, Word}
 import edu.dm.omd.util.PropertiesUtil
 import org.junit.{Before, Test}
 
@@ -12,7 +13,8 @@ class SynonymFinderTest {
 
   @Test
   def testGetSynonyms(): Unit = {
-    SynonymFinder.getSynonyms("good").toArray.foreach(println)
+    val word = new Word("good", new PartOfSpeech("JJ"))
+    SynonymFinder.getSynonyms(word).toArray.foreach(println)
   }
 
 }

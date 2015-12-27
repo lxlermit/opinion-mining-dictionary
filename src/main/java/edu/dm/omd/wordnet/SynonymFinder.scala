@@ -2,23 +2,23 @@ package edu.dm.omd.wordnet
 
 import java.util
 
-import edu.smu.tspell.wordnet.{Synset, SynsetType, WordNetDatabase}
-import collection.JavaConversions._
+import edu.dm.omd.domain.Word
+import edu.smu.tspell.wordnet.{Synset, WordNetDatabase}
 
 object SynonymFinder {
 
 
-  def getSynonyms(word: String): java.util.List[String] = {
+  def getSynonyms(word: Word): java.util.List[String] = {
     val database = WordNetDatabase.getFileInstance
-    val synsets = database.getSynsets(word)
-    def isAdjectiveOrAdverbSynset(synset: Synset): Boolean = {
-      synset.getType == SynsetType.ADJECTIVE || synset.getType == SynsetType.ADJECTIVE_SATELLITE || synset.getType == SynsetType.ADVERB
+    val synsets = database.getSynsets(word.getWord)
+    def isTheSameType(synset: Synset): Boolean = {
+      word.getPartOfSpeech.getSynsetTypes.contains(synset.getType)
     }
     val list = new util.ArrayList[String]()
     synsets.foreach { synset: Synset =>
-      if (isAdjectiveOrAdverbSynset(synset)) {
+      if (isTheSameType(synset)) {
         synset.getWordForms.foreach( wordForm =>
-          if(wordForm != word) {
+          if(wordForm != word.getWord) {
             list.add(wordForm)
           }
         )
