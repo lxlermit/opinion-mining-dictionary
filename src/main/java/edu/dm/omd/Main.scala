@@ -14,6 +14,7 @@ object Main {
 
   def main(args: Array[String]) {
     PropertiesUtil.loadSystemProperties()
+    PropertiesUtil.loadApplicationProperties()
     val line = scala.io.StdIn.readLine()
     val tt = new TreeTaggerWrapper[String]()
     try {
