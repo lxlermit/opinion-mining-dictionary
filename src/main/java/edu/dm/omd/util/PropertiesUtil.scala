@@ -7,6 +7,13 @@ import edu.dm.omd.Main
 
 object PropertiesUtil {
 
+  var applicationProperties: Properties = new Properties()
+
+  def loadApplicationProperties(): Unit = {
+    val inputStream = Main.getResource("application.properties")
+    applicationProperties.load(inputStream)
+  }
+
   def loadSystemProperties(): Unit = {
     val properties = new Properties()
     val inputStream = Main.getResource("system.properties")
@@ -16,6 +23,10 @@ object PropertiesUtil {
       val value = entry.getValue.toString
       System.setProperty(key, value)
     }
+  }
+
+  def getProperty(key: String): String = {
+    applicationProperties.get(key).toString
   }
 
 }
