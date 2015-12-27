@@ -12,7 +12,7 @@ class SynonymFinderTest {
 
   @Test
   def testGetSynonyms(): Unit = {
-    SynonymFinder.getSynonyms("quirky")
+    SynonymFinder.getSynonyms("good").toArray.foreach(println)
   }
 
 }
