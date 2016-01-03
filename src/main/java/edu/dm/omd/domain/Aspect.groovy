@@ -1,5 +1,5 @@
 package edu.dm.omd.domain
 
 enum Aspect {
-    OBJECT, PROPERTY, ACTION, OTHER
+    OBJECT, PROPERTY, ACTION_PROPERTY, ACTION, OTHER
 }

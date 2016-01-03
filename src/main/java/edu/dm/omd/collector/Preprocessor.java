@@ -1,8 +1,5 @@
 package edu.dm.omd.collector;
 
-/**
- * Created by User on 03-01-16.
- */
 public class Preprocessor {
 
     public static String processText(String text) {

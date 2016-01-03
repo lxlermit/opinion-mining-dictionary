@@ -22,7 +22,7 @@ class PartOfSpeech {
             aspect = Aspect.OBJECT
         } else if(posTag.startsWith("RB")) {
             synsetTypes.add(SynsetType.ADVERB)
-            aspect = Aspect.PROPERTY
+            aspect = Aspect.ACTION_PROPERTY
         } else {
             aspect = Aspect.OTHER
         }

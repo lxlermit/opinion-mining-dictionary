@@ -9,4 +9,13 @@ class Word {
         this.word = word
         this.partOfSpeech = partOfSpeech
     }
+
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "word='" + word + '\'' +
+                ", aspect=" + partOfSpeech.aspect +
+                '}';
+    }
 }
