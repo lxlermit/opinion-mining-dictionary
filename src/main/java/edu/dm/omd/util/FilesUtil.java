@@ -26,15 +26,15 @@ public class FilesUtil {
         return set;
     }
 
-//    public static void addToFile(String fileName, String data) {
-//        try{
-//            FileWriter fileWritter = new FileWriter(fileName, true);
-//            BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
-//            bufferWritter.newLine();
-//            bufferWritter.write(data);
-//            bufferWritter.close();
-//        }catch(IOException e){
-//            e.printStackTrace();
-//        }
-//    }
+    public static void addToFile(String fileName, String data) {
+        try{
+            FileWriter fileWritter = new FileWriter(fileName, true);
+            BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+            bufferWritter.newLine();
+            bufferWritter.write(data);
+            bufferWritter.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 }

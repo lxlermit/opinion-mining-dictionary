@@ -17,9 +17,9 @@ public class RepositoryTest {
 
     @Test
     public void testPopulatedWithSuccessPositiveWordsList() {
-        assertTrue("true", Repository.INSTANCE.containsPositiveWord("Fantastic"));
-        assertTrue("true", Repository.INSTANCE.containsPositiveWord("Superb"));
-        assertTrue("true", Repository.INSTANCE.containsPositiveWord("Enthusiastic"));
+        assertTrue(Repository.INSTANCE.containsPositiveWord("Fantastic"));
+        assertTrue(Repository.INSTANCE.containsPositiveWord("Superb"));
+        assertTrue(Repository.INSTANCE.containsPositiveWord("Enthusiastic"));
     }
 
     @Test
