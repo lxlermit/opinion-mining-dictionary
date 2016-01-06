@@ -15,6 +15,7 @@ class SynonymFinderTest {
   def testGetSynonyms(): Unit = {
     val word = new Word("good", new PartOfSpeech("JJ"))
     SynonymFinder.getSynonyms(word).toArray.foreach(println)
+
   }
 
 }

@@ -17,7 +17,7 @@ public class FilesUtil {
         try
         {
             while ((currentLine = br.readLine()) != null) {
-                set.add(currentLine);
+                set.add(currentLine.toLowerCase());
             }
             br.close();
         } catch (IOException e) {

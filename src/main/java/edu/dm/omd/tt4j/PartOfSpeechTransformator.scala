@@ -19,7 +19,7 @@ object PartOfSpeechTransformator {
           val p = new PartOfSpeech(partOfSpeech)
           words += new Word(token, p)
           //if(!p.getSynsetTypes.isEmpty)
-            System.out.println(token + " " + p.getAspect + " "+p.getPosTag)
+            //System.out.println(token + " " + p.getAspect + " "+p.getPosTag)
         }
       }
       treeTaggerWrapper.process(sentence);

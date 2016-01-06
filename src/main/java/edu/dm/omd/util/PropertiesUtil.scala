@@ -7,7 +7,12 @@ import edu.dm.omd.Main
 
 object PropertiesUtil {
 
-  var applicationProperties: Properties = new Properties()
+  private val applicationProperties: Properties = new Properties()
+
+  {
+    loadApplicationProperties()
+    loadSystemProperties()
+  }
 
   def loadApplicationProperties(): Unit = {
     val inputStream = Main.getResource("application.properties")

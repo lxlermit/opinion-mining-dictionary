@@ -10,14 +10,21 @@ class PartOfSpeech {
 
     public PartOfSpeech(String posTag) {
         this.posTag = posTag
+        decidePartOfSpeech()
+    }
+
+    private void decidePartOfSpeech() {
         if(posTag.startsWith("JJ")) {
             synsetTypes.add(SynsetType.ADJECTIVE)
             synsetTypes.add(SynsetType.ADJECTIVE_SATELLITE)
             aspect = Aspect.PROPERTY
-        } else if(posTag.startsWith("V")) {
+        } else if(posTag.startsWith("VB")) {
+            synsetTypes.add(SynsetType.VERB)
+            aspect = Aspect.IS_ACTION
+        } else if(posTag.startsWith("V")){
             synsetTypes.add(SynsetType.VERB)
             aspect = Aspect.ACTION
-        } else if(posTag.startsWith("N") || posTag.startsWith("PP")) {
+        } else if(posTag.startsWith("N") || posTag.equals("PP")) {
             synsetTypes.add(SynsetType.NOUN)
             aspect = Aspect.OBJECT
         } else if(posTag.startsWith("RB")) {

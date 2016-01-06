@@ -14,21 +14,37 @@ object PropertyFinder {
       .split("\\.")
       .foreach(sentence => {
         println(sentence)
-        val wordList = PartOfSpeechTransformator.transformToWordList(sentence.split(" "))
+        val wordList = PartOfSpeechTransformator.transformToWordList(SentencePreprocessor.processSentences(sentence.split(" ")))
         findPropertiesInSentence(wordList)
       })
   }
 
   private def findPropertiesInSentence(wordList: java.util.List[Word]): Unit = {
     var lastNoun: Word = null
-    //var lastVerb: Word = null
     var previousAdjectives = ListBuffer.empty[Word]
     var properties = collection.mutable.Map.empty[Word, ListBuffer[String]]
-    for(i <- 0 to (wordList.size() - 1)){
+    var i:Int = 0
+    while(i <= wordList.size() - 1){
       val word = wordList.get(i)
       word.getPartOfSpeech.getAspect match {
         case Aspect.PROPERTY => previousAdjectives += word
-        case Aspect.ACTION => //lastVerb = word
+        case Aspect.ACTION =>
+        case Aspect.IS_ACTION =>
+          if(wordList.get(i + 1).getPartOfSpeech.getAspect == Aspect.PROPERTY) {
+            previousAdjectives = ListBuffer.empty[Word]
+            i += 1
+            var currentWord = wordList.get(i)
+            while(currentWord != null && currentWord.getPartOfSpeech.getAspect == Aspect.PROPERTY) {
+              previousAdjectives += currentWord
+              i += 1
+              if(i < wordList.size()) {
+                currentWord = wordList.get(i)
+              } else {
+                currentWord = null
+              }
+            }
+            properties(lastNoun) ++= previousAdjectives.map(word => word.getWord)
+          }
         case Aspect.ACTION_PROPERTY =>
           if(lastNoun != null) {
             var property = ""
@@ -52,7 +68,6 @@ object PropertyFinder {
           properties += lastNoun -> ListBuffer.empty[String]
           if (previousAdjectives.nonEmpty) {
             properties(lastNoun) ++= previousAdjectives.map(word => word.getWord)
-            previousAdjectives = ListBuffer.empty[Word]
           }
         case Aspect.OTHER =>
           if(word.getWord.equalsIgnoreCase("some")) {
@@ -61,11 +76,14 @@ object PropertyFinder {
               properties += lastNoun -> ListBuffer.empty[String]
               if (previousAdjectives.nonEmpty) {
                 properties(lastNoun) ++= previousAdjectives.map(word => word.getWord)
-                previousAdjectives = ListBuffer.empty[Word]
               }
             }
           }
       }
+      if(word.getPartOfSpeech.getAspect != Aspect.PROPERTY) {
+        previousAdjectives = ListBuffer.empty[Word]
+      }
+      i += 1
     }
     if (lastNoun != null && previousAdjectives.nonEmpty) {
       println(lastNoun.getWord + HAS_PROPERTIES + foldAdjectives(previousAdjectives))

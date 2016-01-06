@@ -12,9 +12,10 @@ import java.util.List;
 public class SemanticOrientationDecider {
 
     public static void decideSemanticOrientation(Word word) {
-        if(Repository.INSTANCE.containsPositiveWord(word.getWord())) {
+        String wordString = word.getWord().toLowerCase();
+        if(Repository.INSTANCE.containsPositiveWord(wordString)) {
             word.setSemanticOrientation(SemanticOrientation.POSITIVE);
-        } else if(Repository.INSTANCE.containsNegativeWord(word.getWord())) {
+        } else if(Repository.INSTANCE.containsNegativeWord(wordString)) {
             word.setSemanticOrientation(SemanticOrientation.NEGATIVE);
         } else {
             List<String> synonyms = SynonymFinder.getSynonyms(word);
@@ -28,8 +29,8 @@ public class SemanticOrientationDecider {
                 }
             }
         }
-        if(word.getSemanticOrientation().equals("UNKNOWN")) {
-            FilesUtil.addToFile(PropertiesUtil.getProperty("neutralFilePath"), word.getWord());
+        if(word.getSemanticOrientation() == SemanticOrientation.UNKNOWN) {
+            FilesUtil.addToFile(PropertiesUtil.getProperty("neutralFilePath"), wordString);
         }
      }
 }
