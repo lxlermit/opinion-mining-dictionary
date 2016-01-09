@@ -25,12 +25,11 @@ public class SemanticOrientationDecider {
                     return;
                 } else if (Repository.INSTANCE.containsNegativeWord(synonym)) {
                     property.setSemanticOrientation(SemanticOrientation.NEGATIVE);
-                    return;
                 }
             }
         }
         if(property.getSemanticOrientation() == SemanticOrientation.UNKNOWN) {
-            FilesUtil.addToFile(PropertiesUtil.getProperty("neutralListFilePath"), wordString);
+            Repository.INSTANCE.addNeutralWord(property.getWord());
         }
      }
 }
