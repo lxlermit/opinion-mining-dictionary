@@ -22,15 +22,17 @@ public class SemanticOrientationDecider {
             for (String synonym : synonyms) {
                 if (Repository.INSTANCE.containsPositiveWord(synonym)) {
                     word.setSemanticOrientation(SemanticOrientation.POSITIVE);
+                    Repository.INSTANCE.addPositiveWord(word.getWord());
                     return;
                 } else if (Repository.INSTANCE.containsNegativeWord(synonym)) {
                     word.setSemanticOrientation(SemanticOrientation.NEGATIVE);
+                    Repository.INSTANCE.addNegativeWord(word.getWord());
                     return;
                 }
             }
         }
         if(word.getSemanticOrientation() == SemanticOrientation.UNKNOWN) {
-            FilesUtil.addToFile(PropertiesUtil.getProperty("neutralFilePath"), wordString);
+            Repository.INSTANCE.addNeutralWord(word.getWord());
         }
      }
 }
