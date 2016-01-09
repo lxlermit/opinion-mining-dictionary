@@ -1,6 +1,6 @@
 package edu.dm.omd.tt4j
 
-import edu.dm.omd.domain.{Word, PartOfSpeech}
+import edu.dm.omd.domain.{Property, Aspect, Word, PartOfSpeech}
 import org.annolab.tt4j.{TokenHandler, TreeTaggerWrapper}
 import collection.JavaConversions._
 
@@ -17,7 +17,11 @@ object PartOfSpeechTransformator {
       treeTaggerWrapper setHandler new TokenHandler[String]() {
         def token(token: String, partOfSpeech: String, lemma: String) {
           val p = new PartOfSpeech(partOfSpeech)
-          words += new Word(token, p)
+          if(p.getAspect == Aspect.ACTION_PROPERTY || p.getAspect == Aspect.PROPERTY) {
+            words += new Property(token, p)
+          } else {
+            words += new Word(token, p)
+          }
           //if(!p.getSynsetTypes.isEmpty)
             //System.out.println(token + " " + p.getAspect + " "+p.getPosTag)
         }

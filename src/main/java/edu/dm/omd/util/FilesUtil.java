@@ -1,7 +1,5 @@
 package edu.dm.omd.util;
 
-import edu.dm.omd.Main;
-
 import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,11 +8,8 @@ public class FilesUtil {
 
     public static Set<String> readFromFile(String fileName) {
         Set<String> set = new HashSet<>();
-        InputStream inputStream = Main.getResource(fileName);
-        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-        BufferedReader br = new BufferedReader(inputStreamReader);
         String currentLine;
-        try
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName))))
         {
             while ((currentLine = br.readLine()) != null) {
                 set.add(currentLine.toLowerCase());

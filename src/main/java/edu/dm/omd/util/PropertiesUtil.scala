@@ -9,7 +9,7 @@ object PropertiesUtil {
 
   private val applicationProperties: Properties = new Properties()
 
-  {
+  def initialize: Unit = {
     loadApplicationProperties()
     loadSystemProperties()
   }

@@ -9,8 +9,8 @@ public enum Repository {
 
     INSTANCE;
 
-    private final String positiveListFileName = PropertiesUtil.getProperty("positiveListFileName");
-    private final String negativeListFileName = PropertiesUtil.getProperty("negativeListFileName");
+    private final String positiveListFileName = PropertiesUtil.getProperty("positiveListFilePath");
+    private final String negativeListFileName = PropertiesUtil.getProperty("negativeListFilePath");
 
     private final Set<String> positiveWords = FilesUtil.readFromFile(positiveListFileName);
     private final Set<String> negativeWords = FilesUtil.readFromFile(negativeListFileName);
