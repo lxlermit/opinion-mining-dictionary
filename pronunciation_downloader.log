@@ -1,0 +1,94 @@
+2025-06-26 02:23:16,880 - INFO - Найдено 0 уникальных английских слов без существующих аудиофайлов
+2025-06-26 02:23:58,569 - INFO - Найдено 1 уникальных английских слов без существующих аудиофайлов
+2025-06-26 02:23:58,601 - INFO - Using default request storage
+2025-06-26 02:23:58,610 - INFO - Created proxy listening on 127.0.0.1:51146
+2025-06-26 02:23:59,927 - INFO - Capturing request: http://clients2.google.com/time/1/current?cup2key=9:7h1veUf8iJkDjeArfCCkBjgSbnENX0-vymqsDP6uys4&cup2hreq=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+2025-06-26 02:23:59,981 - INFO - Capturing response: http://clients2.google.com/time/1/current?cup2key=9:7h1veUf8iJkDjeArfCCkBjgSbnENX0-vymqsDP6uys4&cup2hreq=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 200 OK
+2025-06-26 02:24:00,406 - INFO - Capturing request: https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard
+2025-06-26 02:24:00,547 - INFO - Capturing response: https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard 200 
+2025-06-26 02:24:01,173 - INFO - Capturing request: https://youdao.com/result?word=attempt&lang=en
+2025-06-26 02:24:03,946 - INFO - Capturing response: https://youdao.com/result?word=attempt&lang=en 302 Found
+2025-06-26 02:24:03,951 - INFO - Capturing request: https://youdao.com/m/result?word=attempt&lang=en
+2025-06-26 02:24:04,879 - INFO - Capturing response: https://youdao.com/m/result?word=attempt&lang=en 200 OK
+2025-06-26 02:24:06,002 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/swiper/swiper-bundle.min.css
+2025-06-26 02:24:06,004 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/cf47e2a.js
+2025-06-26 02:24:06,005 - INFO - Capturing request: https://shared.ydstatic.com/js/rlog/v1.js
+2025-06-26 02:24:06,006 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/swiper/swiper-bundle.min.js
+2025-06-26 02:24:06,008 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/1.0.0/rem.js
+2025-06-26 02:24:06,009 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/1.0.0/bury.js
+2025-06-26 02:24:06,018 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/a83a790.js
+2025-06-26 02:24:06,019 - INFO - Capturing request: https://shared.ydstatic.com/dict/yd_products/online/1.1.2/dist/lib/yd-nav.js
+2025-06-26 02:24:06,020 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/2f77d25.js
+2025-06-26 02:24:06,021 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/039e96e.js
+2025-06-26 02:24:06,022 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/f96e18f.js
+2025-06-26 02:24:06,024 - INFO - Capturing request: https://shared.ydstatic.com/js/yadk/1.1.3.js
+2025-06-26 02:24:06,024 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/cac1646.js
+2025-06-26 02:24:06,025 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/2aa33ea.js
+2025-06-26 02:24:06,026 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/bba5723.js
+2025-06-26 02:24:06,028 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/1cf1aa7.js
+2025-06-26 02:24:06,104 - INFO - Capturing response: https://shared.ydstatic.com/js/rlog/v1.js 200 
+2025-06-26 02:24:06,127 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/swiper/swiper-bundle.min.css 200 
+2025-06-26 02:24:06,147 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/bba5723.js 200 
+2025-06-26 02:24:06,222 - INFO - Capturing response: https://shared.ydstatic.com/dict/yd_products/online/1.1.2/dist/lib/yd-nav.js 200 
+2025-06-26 02:24:06,224 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/1.0.0/bury.js 200 
+2025-06-26 02:24:06,225 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/2f77d25.js 200 
+2025-06-26 02:24:06,227 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/1.0.0/rem.js 200 
+2025-06-26 02:24:06,228 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/img/m-home-logo.2c56580.png
+2025-06-26 02:24:06,253 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/swiper/swiper-bundle.min.js 200 
+2025-06-26 02:24:06,255 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/2aa33ea.js 200 
+2025-06-26 02:24:06,256 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/cf47e2a.js 200 
+2025-06-26 02:24:06,259 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/1cf1aa7.js 200 
+2025-06-26 02:24:06,262 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/cac1646.js 200 
+2025-06-26 02:24:06,263 - INFO - Capturing response: https://shared.ydstatic.com/js/yadk/1.1.3.js 200 
+2025-06-26 02:24:06,265 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/img/m-home-logo.2c56580.png 200 
+2025-06-26 02:24:06,283 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/a83a790.js 200 
+2025-06-26 02:24:06,285 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/039e96e.js 200 
+2025-06-26 02:24:06,377 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/f96e18f.js 200 
+2025-06-26 02:24:06,392 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/img/ic_close.e964728.png
+2025-06-26 02:24:06,408 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/img/ic_result_voice_00.1048cc2.png
+2025-06-26 02:24:06,409 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/img/bg_title_mark.b54ace3.png
+2025-06-26 02:24:06,518 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/img/ic_close.e964728.png 200 
+2025-06-26 02:24:06,535 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/img/ic_result_voice_00.1048cc2.png 200 
+2025-06-26 02:24:06,538 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/img/bg_title_mark.b54ace3.png 200 
+2025-06-26 02:24:06,693 - INFO - Capturing request: https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTM3LjAuNzE1MS4xMjASGQlVNNBE3W3ArhIFDRepaL4hyuzSbpJm-H8=?alt=proto
+2025-06-26 02:24:06,818 - INFO - Capturing response: https://content-autofill.googleapis.com/v1/pages/ChVDaHJvbWUvMTM3LjAuNzE1MS4xMjASGQlVNNBE3W3ArhIFDRepaL4hyuzSbpJm-H8=?alt=proto 200 
+2025-06-26 02:24:07,670 - INFO - Capturing request: https://ydlunacommon-cdn.nosdn.127.net/f90ef9f73a4c3bb6c686731ca109e7e2.ttf
+2025-06-26 02:24:07,748 - INFO - Capturing request: https://rlogs.youdao.com/rlog.php?_npid=dictweb&_ncat=pageview&_ncoo=1168227934.599508&_nssn=NULL&_nver=1.2.0&_ntms=1750893846230&_nref=&_nurl=https%3A%2F%2Fyoudao.com%2Fm%2Fresult%3Fword%3Dattempt%26lang%3Den&_nres=800x600&_nlmf=1750893846&_njve=0&_nchr=utf-8&_nfrg=
+2025-06-26 02:24:07,769 - INFO - Capturing response: https://ydlunacommon-cdn.nosdn.127.net/f90ef9f73a4c3bb6c686731ca109e7e2.ttf 200 
+2025-06-26 02:24:08,268 - INFO - Capturing response: https://rlogs.youdao.com/rlog.php?_npid=dictweb&_ncat=pageview&_ncoo=1168227934.599508&_nssn=NULL&_nver=1.2.0&_ntms=1750893846230&_nref=&_nurl=https%3A%2F%2Fyoudao.com%2Fm%2Fresult%3Fword%3Dattempt%26lang%3Den&_nres=800x600&_nlmf=1750893846&_njve=0&_nchr=utf-8&_nfrg= 200 
+2025-06-26 02:24:08,735 - INFO - Capturing request: https://dict.youdao.com/suggest?num=5&ver=3.0&doctype=json&cache=false&le=en&q=attempt
+2025-06-26 02:24:08,736 - INFO - Capturing request: https://dict.youdao.com/jsonapi_s?doctype=json&jsonversion=4
+2025-06-26 02:24:09,117 - INFO - Capturing response: https://dict.youdao.com/suggest?num=5&ver=3.0&doctype=json&cache=false&le=en&q=attempt 200 OK
+2025-06-26 02:24:09,127 - INFO - Capturing request: https://dict.youdao.com/vip/user/status
+2025-06-26 02:24:09,224 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/fedb5a4.js
+2025-06-26 02:24:09,226 - INFO - Capturing request: https://rlogs.youdao.com/rlog.php?_npid=dictweb&_ncat=event&_ncoo=1168227934.599508&_nssn=NULL&_nver=1.2.0&_ntms=1750893846518&_nhrf=dict_result_en_m
+2025-06-26 02:24:09,350 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/fedb5a4.js 200 
+2025-06-26 02:24:09,460 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/b39cb0a.js
+2025-06-26 02:24:09,587 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/b39cb0a.js 200 
+2025-06-26 02:24:09,603 - INFO - Capturing response: https://rlogs.youdao.com/rlog.php?_npid=dictweb&_ncat=event&_ncoo=1168227934.599508&_nssn=NULL&_nver=1.2.0&_ntms=1750893846518&_nhrf=dict_result_en_m 200 
+2025-06-26 02:24:09,698 - INFO - Capturing request: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/fef7d4f.js
+2025-06-26 02:24:09,778 - INFO - Capturing response: https://dict.youdao.com/jsonapi_s?doctype=json&jsonversion=4 200 
+2025-06-26 02:24:09,839 - INFO - Capturing response: https://shared.ydstatic.com/market/souti/web_dict/online/3.0.2/dist/client/fef7d4f.js 200 
+2025-06-26 02:24:09,896 - INFO - Capturing request: https://optimizationguide-pa.googleapis.com/v1:GetModels?key=AIzaSyA2KlwBX3mkFo30om9LUFYQhpqLoa_BNhE
+2025-06-26 02:24:10,057 - INFO - Capturing response: https://optimizationguide-pa.googleapis.com/v1:GetModels?key=AIzaSyA2KlwBX3mkFo30om9LUFYQhpqLoa_BNhE 200 
+2025-06-26 02:24:10,312 - INFO - Capturing response: https://dict.youdao.com/vip/user/status 200 
+2025-06-26 02:24:10,513 - INFO - Capturing request: https://shared-https.ydstatic.com/images/favicon.ico
+2025-06-26 02:24:10,528 - INFO - Capturing response: https://shared-https.ydstatic.com/images/favicon.ico 200 
+2025-06-26 02:24:11,250 - INFO - Capturing request: https://gorgon.youdao.com/gorgon/request.s?udid=24C56021-A1CB-4A07-993A-2D2A7F00FDCD&id=0cdb70957a0d6f5b4dbc91abff894eed&isSecure=1&MAGIC_NO=0&reqfrom=web&webos=0&nsv=1.1.3&ran=1&callback=_yad_jsonp_0&_1750893850313
+2025-06-26 02:24:11,629 - INFO - Capturing response: https://gorgon.youdao.com/gorgon/request.s?udid=24C56021-A1CB-4A07-993A-2D2A7F00FDCD&id=0cdb70957a0d6f5b4dbc91abff894eed&isSecure=1&MAGIC_NO=0&reqfrom=web&webos=0&nsv=1.1.3&ran=1&callback=_yad_jsonp_0&_1750893850313 200 
+2025-06-26 02:24:12,945 - INFO - Найдена прямая ссылка на аудио: https://dict.youdao.com/pronounce/base?product=webdict&appVersion=1&client=web&mid=1&vendor=web&screen=1&model=1&imei=1&network=wifi&keyfrom=dick&keyid=voiceDictWeb&mysticTime=1750893846525&yduuid=abcdefg&le=&phonetic=&rate=4&word=attempt&type=1&id=&sign=12ef83d48c941def3f1a3d0a94e82934&pointParam=appVersion,client,imei,keyfrom,keyid,mid,model,mysticTime,network,product,rate,screen,type,vendor,word,yduuid,key
+2025-06-26 02:24:13,908 - INFO - Аудио для слова 'attempt' сохранено в html/audio\attempt.mp3
+2025-06-26 02:24:16,036 - INFO - Итоги: успешно - 1, существовали - 0, неудачно - 0, ошибки - 0
+2025-06-26 02:25:09,455 - INFO - Найдено 1 уникальных английских слов без существующих аудиофайлов
+2025-06-26 02:25:11,219 - ERROR - Не найдена ссылка на аудио для слова attempt
+2025-06-26 02:25:11,222 - INFO - Итоги: успешно - 0, существовали - 0, неудачно - 1, ошибки - 0
+2025-06-26 02:28:51,499 - INFO - Найдено 1 уникальных английских слов без существующих аудиофайлов
+2025-06-26 02:28:52,527 - INFO - Аудио для слова 'attempt' сохранено в html/audio\attempt.mp3
+2025-06-26 02:28:52,530 - INFO - Итоги: успешно - 1, существовали - 0, неудачно - 0, ошибки - 0
+2025-06-27 06:18:30,379 - INFO - Найдено 3 уникальных английских слов без существующих аудиофайлов
+2025-06-27 06:18:32,204 - INFO - Аудио для слова 'variable' сохранено в html/audio\variable.mp3
+2025-06-27 06:18:35,620 - INFO - Аудио для слова 'cannot' сохранено в html/audio\cannot.mp3
+2025-06-27 06:18:39,624 - INFO - Аудио для слова 'access' сохранено в html/audio\access.mp3
+2025-06-27 06:18:39,627 - INFO - Итоги: успешно - 3, существовали - 0, неудачно - 0, ошибки - 0
+2025-06-27 06:30:52,297 - INFO - Найдено 0 уникальных английских слов без существующих аудиофайлов
+2025-06-27 06:31:02,915 - INFO - Найдено 0 уникальных английских слов без существующих аудиофайлов

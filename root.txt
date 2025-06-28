@@ -1,0 +1,51 @@
+1 - 
+orangepi - orangepi
+
+
+
+2 - 
+sudo nano /etc/systemd/system/dictionary.service
+
+
+[Unit]
+Description=dictionary
+After=network.target
+
+[Service]
+Type=simple
+User=orangepi
+Group=orangepi
+WorkingDirectory=/home/orangepi/python_vova/dictionary/
+Environment=PYTHONPATH=/home/orangepi/python_vova/dictionary/
+ExecStart=python3 /home/orangepi/python_vova/dictionary/run.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=network.target
+
+
+
+(Ключевые параметры:
+Type=simple – сервис запускается напрямую (без fork).
+StandardOutput=journal – перенаправляет stdout в journalctl.
+StandardError=journal – перенаправляет stderr в journalctl.
+Restart=always – автоматически перезапускает сервис при падении.)
+
+
+
+3 - 
+sudo systemctl daemon-reload
+sudo systemctl enable dictionary.service
+sudo systemctl start dictionary.service
+
+
+4 -
+journalctl -u dictionary.service
+
+
+
+
+
