@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Learning translate words.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        h1 {
+            font-size: 32px;
+            margin: 10px 0;
+            order: 2; /* Заголовок будет ниже информации о пользователе */
+        }
+        .username {
+            order: 1; /* Информация о пользователе будет выше заголовка */
+            margin: 10px 0;
+            position: static;
+            text-align: center;
+            font-size: 12px;
+        }
+        .sound-toggle {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 100;
+            padding: 5px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .sound-on {
+            color: #4CAF50;
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+
+        .sound-off {
+            color: #F44336;
+            background-color: rgba(244, 67, 54, 0.1);
+        }
+
+        .sound-toggle:hover {
+            transform: scale(1.1);
+        }
+        .word-container {
+            margin-top: 50px;
+        }
+        .word {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .microphone-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #007bff;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            transition: all 0.3s;
+            min-width: 100px;
+        }
+        .buttons button:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.05);
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .correct {
+            color: green;
+            background-color: #e8f5e9;
+        }
+        .incorrect {
+            color: red;
+            background-color: #ffebee;
+        }
+        .progress {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        .progress-bar {
+            width: 50%;
+            height: 20px;
+            background-color: #f3f3f3;
+            margin: 10px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #76c7c0;
+            transition: width 0.3s ease;
+        }
+        .celebration-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .celebration-message {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+        .difficulty-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .difficulty-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            min-width: 100px;
+        }
+        .difficulty-buttons button:hover {
+            transform: scale(1.05);
+        }
+        .difficulty-easy {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .difficulty-medium {
+            background-color: #FFC107;
+        }
+        .difficulty-hard {
+            background-color: #F44336;
+            color: white;
+        }
+        .difficulty-active {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+        .progress-text {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .edit-dictionary-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .edit-dictionary-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        .expert-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .expert-form input[type="text"] {
+            padding: 12px 20px;
+            font-size: 18px;
+            width: 300px;
+            max-width: 80%;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .submit-expert {
+            padding: 10px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-expert:hover {
+            background-color: #45a049;
+        }
+        .new-word-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .new-word-buttons button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .new-word-buttons button:hover {
+            background-color: #0b7dda;
+        }
+
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 16px;
+            }
+            
+            .header-container {
+                padding-top: 40px; /* Даем место для кнопки звука */
+            }
+
+            h1 {
+                font-size: 24px;
+                margin: 5px 0 15px;
+            }
+
+            .username {
+                font-size: 24px;
+                margin: 5px 0;
+            }
+
+            .sound-toggle {
+                top: 10px;
+                left: 10px;
+            }
+
+            .word {
+                font-size: 24px;
+                flex-direction: column;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .buttons button {
+                width: 100%;
+                padding: 12px;
+            }
+
+            .difficulty-buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .difficulty-buttons button {
+                width: 100%;
+            }
+
+            .progress-bar {
+                width: 90%;
+            }
+
+            .edit-dictionary-button {
+                position: static;
+                display: block;
+                margin: 20px auto;
+                width: 90%;
+                text-align: center;
+            }
+
+            .expert-form input[type="text"] {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="soundToggle" class="sound-toggle" title="Включить/выключить звук">
+        <span id="soundIcon">🔊</span>
+    </button>
+
+    
+    <div class="username">
+        Пользователь: {{ username }}
+    </div>
+
+    <h1>Угадай перевод</h1>
+    
+    <div class="difficulty-buttons">
+        <button class="difficulty-easy {% if current_difficulty == 0 %}difficulty-active{% endif %}"
+            onclick="location.href='{{ url_for('dictionary.change_difficulty', level=0) }}'">
+            Легкий
+            <div class="progress-text">{{ daily_progress[0] }}/{{ daily_goals[0] }}</div>
+        </button>
+        <button class="difficulty-medium {% if current_difficulty == 1 %}difficulty-active{% endif %}"
+                onclick="location.href='{{ url_for('dictionary.change_difficulty', level=1) }}'">
+            Средний
+            <div class="progress-text">{{ daily_progress[1] }}/{{ daily_goals[1] }}</div>
+        </button>
+        <button class="difficulty-hard {% if current_difficulty == 2 %}difficulty-active{% endif %}"
+                onclick="location.href='{{ url_for('dictionary.change_difficulty', level=2) }}'">
+            Эксперт
+            <div class="progress-text">{{ daily_progress[2] }}/{{ daily_goals[2] }}</div>
+        </button>
+    </div>
+
+    <div class="word-container">
+        <div class="word">
+            {{ target_word }}
+            {% if current_difficulty == 0 %}  <!-- Показываем кнопку только в легком режиме -->
+                <button class="microphone-button" id="play-button" title="Прослушать слово">🎤</button>
+            {% endif %}
+        </div>
+        <audio id="word-audio" controls style="display: none;">
+            <source id="audio-source" src="" type="audio/mpeg">
+            Ваш браузер не поддерживает аудио.
+        </audio>
+
+        {% if current_difficulty != 2 %}
+        <form method="POST" action="{{ url_for('dictionary.check_answer') }}">
+            <div class="buttons">
+                {% for option in options %}
+                    <button type="submit" name="translation" value="{{ option }}">{{ option }}</button>
+                {% endfor %}
+            </div>
+            <input type="hidden" name="word" value="{{ target_word }}">
+        </form>
+        {% else %}
+        <form method="POST" action="{{ url_for('dictionary.check_answer') }}" class="expert-form">
+            <input type="text" name="user_input" autocomplete="off" autocapitalize="off"
+                   placeholder="Введите перевод..." autofocus>
+            <input type="hidden" name="word" value="{{ target_word }}">
+            <button type="submit" class="submit-expert">Проверить</button>
+        </form>
+        {% endif %}
+
+        {% if result %}
+            <div class="result {% if result.correct %}correct{% else %}incorrect{% endif %}">
+                {% if result.correct %}
+                    Правильно!
+                    {% if result.mode == 'easy' %}{{ result.word }} — {{ result.correct_answer }}
+                    {% elif result.mode == 'medium' %}{{ result.correct_answer }} — {{ result.word }}
+                    {% else %}{{ result.word }} — {{ result.correct_answer }}{% endif %}
+                {% else %}
+                    Не правильно!
+                    {% if result.mode == 'easy' %}
+                        {{ result.word }} — {{ result.correct_answer }}.
+                        Вы выбрали {{ result.selected_translation }} — {{ result.selected_word }}
+                    {% elif result.mode == 'medium' %}
+                        {{ result.correct_answer }} — {{ result.word }}.
+                        Вы выбрали {{ result.selected_translation }} — {{ result.selected_word }}
+                    {% else %}
+                        {{ result.word }} — {{ result.correct_answer }}.
+                        Вы набрали: {{ result.user_input }}
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <div class="progress">
+            Прогресс: {{ progress }} из {{ daily_goal }}
+        </div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: {{ progress_percentage }}%;"></div>
+        </div>
+        <!-- 
+        <div class="new-word-buttons">
+            <button onclick="location.href='{{ url_for('dictionary.home', new_word=1) }}'">Следующее слово</button>
+        </div>
+        -->
+    </div>
+
+    <a href="{{ url_for('dictionary.edit_dictionary') }}" class="edit-dictionary-button">
+        ✏️ Редактировать словарь
+    </a>
+
+    {% if celebration %}
+        <div class="celebration-overlay">
+            <div class="celebration-message">
+                ПОЗДРАВЛЯЮ!<br>Ежедневная цель выполнена!
+            </div>
+        </div>
+    {% endif %}
+
+    <script>
+        // Исчезновение Поздравления
+        const celebrationOverlay = document.querySelector('.celebration-overlay');
+            if (celebrationOverlay) {
+                celebrationOverlay.addEventListener('click', () => {
+                    celebrationOverlay.style.display = 'none';
+                });
+            }
+
+        // Управление звуком
+        document.addEventListener('DOMContentLoaded', () => {
+            const soundToggle = document.getElementById('soundToggle');
+            const soundIcon = document.getElementById('soundIcon');
+
+            // Проверяем сохраненное состояние звука или устанавливаем по умолчанию true
+            let soundEnabled = localStorage.getItem('soundEnabled') !== 'false';
+
+            // Обновляем иконку в соответствии с текущим состоянием
+            function updateSoundIcon() {
+                soundIcon.textContent = soundEnabled ? '🔊' : '🔇';
+                soundToggle.classList.toggle('sound-on', soundEnabled);
+                soundToggle.classList.toggle('sound-off', !soundEnabled);
+                localStorage.setItem('soundEnabled', soundEnabled);
+            }
+
+            // Инициализация иконки
+            updateSoundIcon();
+
+            // Обработчик клика по кнопке
+            soundToggle.addEventListener('click', () => {
+                soundEnabled = !soundEnabled;
+                updateSoundIcon();
+            });
+
+            // Автовоспроизведение только для легкого уровня (0)
+            if ({{ current_difficulty }} === 0 && soundEnabled) {
+                const wordToPlay = "{{ target_word }}";
+                if (wordToPlay) {
+                    playAudio(wordToPlay);
+                }
+            }
+
+            // Обработчик клика по кнопке воспроизведения
+            const playButton = document.getElementById('play-button');
+            if (playButton) {
+                playButton.addEventListener('click', () => {
+                    if (soundEnabled) {
+                        const wordToPlay = "{{ target_word }}";
+                        playAudio(wordToPlay);
+                    }
+                });
+            }
+        });
+
+        // Функция воспроизведения аудио
+        function playAudio(word) {
+            const audioElement = document.getElementById('word-audio');
+            const audioSource = document.getElementById('audio-source');
+            const audioPath = "/dictionary/audio/" + word + ".mp3";  // Добавляем /dictionary/
+
+            // Создаем новый объект Audio каждый раз
+            const audio = new Audio(audioPath);
+            audio.play().catch(error => {
+                console.log("Автовоспроизведение заблокировано:", error);
+            });
+        }
+    </script>
+</body>
+</html>
